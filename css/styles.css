@@ -1,0 +1,166 @@
+/* ============================================================
+   BioBuddy — Mobile MVP Prototype
+   Target device: iPhone 14 — 390px x 844px
+   ============================================================ */
+
+/* ---------- Design tokens (replace with your design system) ---------- */
+:root {
+  /* Layout width — mobile-first, fluid, capped at iPad */
+  --app-max-w: 834px; /* iPad (11") portrait width */
+
+  /* Palette — placeholders, override when design system arrives */
+  --color-bg: #ffffff;
+  --color-surface: #f5f5f5;
+  --color-text: #111111;
+  --color-text-muted: #6b6b6b;
+  --color-primary: #111111;
+  --color-on-primary: #ffffff;
+  --color-border: #e5e5e5;
+
+  /* Typography */
+  --font-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: var(--font-base);
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Layout */
+  --header-h: 56px;
+  --tabbar-h: 64px;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-base);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+/* ---------- App container (mobile-first, fluid up to iPad) ---------- */
+body {
+  background: var(--color-bg);
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Fills the viewport on phones; caps at iPad width and centers on larger screens. */
+.device {
+  width: 100%;
+  max-width: var(--app-max-w);
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin-inline: auto;
+  background: var(--color-bg);
+  position: relative;
+}
+
+.screen {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg);
+}
+
+/* Beyond iPad: frame the capped app so the extra space reads as intentional. */
+@media (min-width: 835px) {
+  body {
+    background: #e9e9ec;
+  }
+  .device {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  }
+}
+
+/* ---------- App shell ---------- */
+.app {
+  flex: 1;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.view {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.app-body {
+  flex: 1;
+  padding: var(--space-4);
+}
+
+.placeholder {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* ---------- Bottom tab bar ---------- */
+.tab-bar:empty {
+  display: none;
+}
+
+.tab-bar {
+  height: var(--tabbar-h);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--color-bg);
+}
+
+/* ---------- Larger phones / tablet: room to breathe ---------- */
+@media (min-width: 600px) {
+  .app-body {
+    padding: var(--space-5);
+  }
+}
