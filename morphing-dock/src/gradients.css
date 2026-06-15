@@ -1,0 +1,21 @@
+/* ============================================================
+   BioBalance — Card gradients (per category pillar)
+   Exact radial-gradient values from the Figma design system.
+   Use --grad-card-<pillar> or the .card-grad-<pillar> class.
+   ============================================================ */
+
+:root {
+  --grad-card-sleep: radial-gradient(111.77% 115.76% at 79.67% 16.02%, #cba5ce 22.16%, #beb4d6 68.43%, #b3c1de 100%);
+  --grad-card-mental: radial-gradient(85.05% 109.96% at 80.77% 74.61%, #b3c1de 0%, #ccd6e9 50%, #e2e2e2 100%);
+  --grad-card-nutrition: radial-gradient(83.49% 107.82% at 10.44% 50%, #c24d08 19.15%, #d29775 51.92%, #e2e2e2 96.15%);
+  --grad-card-fertility: radial-gradient(160.32% 76.23% at 78.78% 35.38%, #b2255a 19.22%, #c585b1 64.98%, #c5acd2 100%);
+  --grad-card-lifestyle: radial-gradient(91.78% 121.43% at 82.97% 11.33%, #cbc459 18.12%, #d1cc7c 53.94%, #dcdac0 84.24%);
+  --grad-card-core: radial-gradient(85.05% 109.96% at 80.77% 74.61%, #e2e2e2 0%, #ededed 50%, #ffffff 100%);
+}
+
+.card-grad-sleep { background: var(--grad-card-sleep); }
+.card-grad-mental { background: var(--grad-card-mental); }
+.card-grad-nutrition { background: var(--grad-card-nutrition); }
+.card-grad-fertility { background: var(--grad-card-fertility); }
+.card-grad-lifestyle { background: var(--grad-card-lifestyle); }
+.card-grad-core { background: var(--grad-card-core); }

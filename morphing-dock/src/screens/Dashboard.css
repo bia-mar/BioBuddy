@@ -1,0 +1,294 @@
+/* ============================================================
+   Dashboard / main (low-data onboarding state)
+   Figma node 834:6721
+   ============================================================ */
+
+.dash {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  padding: 0 var(--space-4);
+  background: var(--color-bg);
+}
+
+/* ---- Header ---- */
+.dash-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-top: var(--space-5);
+}
+.dash-header__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dash-hello {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-semibold);
+  color: #1d1d1f;
+}
+.dash-iconbtn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--primary-600);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--primary-600);
+  cursor: pointer;
+}
+.dash-quote {
+  font-size: var(--fs-body);
+  line-height: 1.35;
+  color: #4a5565;
+  max-width: 304px;
+}
+
+/* ---- Generic card ---- */
+.card {
+  border-radius: 17px;
+  padding: 20px;
+}
+.card-title {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-semibold);
+  color: #1d1d1f;
+}
+.card-title--lg {
+  font-size: var(--fs-h2);
+  color: #000;
+}
+.card-sub {
+  font-size: var(--fs-body);
+  line-height: 1.35;
+  color: #333;
+}
+
+/* ---- Content column ---- */
+.dash-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* ---- Stacked highlight deck ---- */
+.deck {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 22px;
+}
+.deck__peek {
+  position: absolute;
+  height: 256px;
+  border-radius: 17px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.deck__peek--1 {
+  top: 0;
+  width: 314px;
+  background: var(--primary-300);
+  z-index: 1;
+}
+.deck__peek--2 {
+  top: 11px;
+  width: 344px;
+  background: var(--primary-200);
+  z-index: 2;
+}
+.deck__front {
+  position: relative;
+  z-index: 3;
+  width: 358px;
+  max-width: 100%;
+  height: 256px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--primary-100);
+  border: 1px solid var(--primary-300);
+}
+.deck__front .card-sub {
+  margin-top: var(--space-2);
+}
+
+/* ---- Pill button ---- */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  align-self: flex-start;
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--primary-600);
+  color: #fefdfc;
+  font-size: var(--fs-body);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+}
+.btn-pill--sm {
+  padding: 12px;
+}
+
+/* ---- Baseline (dark) card ---- */
+.card-dark {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  background: var(--primary-900);
+}
+.card-dark__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-dark__title {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-semibold);
+  color: #f7f7f7;
+}
+.card-dark__meta {
+  font-size: var(--fs-body);
+  color: #e6e6e6;
+  white-space: nowrap;
+}
+.card-dark__text {
+  font-size: var(--fs-body);
+  line-height: 1.35;
+  color: #e6e6e6;
+}
+.progress {
+  height: 6px;
+  width: 100%;
+  border-radius: var(--radius-pill);
+  background: var(--primary-100);
+  overflow: hidden;
+}
+.progress__fill {
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--primary-500);
+}
+
+/* ---- Today's goal ---- */
+.card-goal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  background: var(--primary-100);
+}
+.card-goal__head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.card-goal__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.muted {
+  font-size: var(--fs-body);
+  color: #666;
+}
+
+/* ---- Metric grid ---- */
+.dash-row {
+  display: flex;
+  gap: var(--space-2);
+}
+.metric {
+  height: 178px;
+  border-radius: 17px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.metric--fixed {
+  width: 176px;
+  flex-shrink: 0;
+}
+.metric--grow {
+  flex: 1 0 0;
+  min-width: 0;
+}
+.metric__value {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-semibold);
+  color: #000;
+}
+.metric__value--xl {
+  font-size: var(--fs-h1);
+}
+.metric__label {
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-normal);
+  font-weight: var(--fw-semibold);
+  color: #333;
+  margin-top: 2px;
+}
+.metric__label--muted {
+  color: #666;
+}
+
+/* dashed "empty / waiting" metric */
+.metric--empty {
+  background: var(--primary-100);
+  border: 1px dashed var(--primary-500);
+  padding: 17px;
+}
+.metric__waiting {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-snug);
+  font-weight: var(--fw-medium);
+  color: #4a5565;
+}
+
+/* gradient backgrounds for metric cards */
+.metric--sleep {
+  background: var(--grad-card-sleep);
+}
+.metric--hrv {
+  background: linear-gradient(180deg, #e6eaf4 0%, #ccd6e9 54.33%, #b3c1de 94.23%);
+}
+
+/* charts */
+.chart {
+  width: 100%;
+  display: block;
+}
+
+/* ---- pagination dots ---- */
+.dots {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  justify-content: center;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 0, 0, 0.3);
+}
+.dot--active {
+  width: 20px;
+  background: #000;
+}

@@ -1,0 +1,52 @@
+/* App shell — centered phone frame with a scrolling screen and a floating dock. */
+
+.app-root {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  background: #e9e9ec;
+}
+
+.app-screen {
+  position: relative;
+  width: 100%;
+  max-width: 390px;
+  height: 100dvh;
+  background: var(--color-bg);
+  overflow: hidden;
+}
+
+.app-scroll {
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 150px; /* clear the floating dock */
+}
+
+/* Bottom overlay: fade + pagination dots + dock */
+.app-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 18px;
+  pointer-events: none; /* let the fade pass touches through; children re-enable */
+}
+.app-bottom__fade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 96px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #ffffff 70%);
+  z-index: 0;
+}
+.app-bottom > * {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}

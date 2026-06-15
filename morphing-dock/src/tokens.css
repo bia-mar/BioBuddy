@@ -1,0 +1,160 @@
+/* ============================================================
+   BioBalance — Design tokens
+   Source: Figma "BioBalance" design system
+   https://www.figma.com/design/rgc8PvZ2zlUxD5QcePwtXE/BioBalance
+   ============================================================ */
+
+:root {
+  /* ---------- Primitive colors ---------- */
+
+  /* Primary — Teal */
+  --primary-100: #e7f5f7;
+  --primary-200: #d0ebef;
+  --primary-300: #b8e1e7;
+  --primary-400: #72c2cf;
+  --primary-500: #43aebf;
+  --primary-600: #149aaf; /* brand / main */
+  --primary-700: #00677c;
+  --primary-800: #004e62;
+  --primary-900: #003449;
+  --primary-1000: #001b30;
+
+  /* Secondary — Neutral / grey */
+  --neutral-100: #f5f5f5;
+  --neutral-200: #e6e6e6;
+  --neutral-300: #d9d9d9;
+  --neutral-400: #cccccc;
+  --neutral-500: #b3b3b3;
+  --neutral-600: #999999;
+  --neutral-700: #767676;
+  --neutral-800: #4d4d4d;
+  --neutral-900: #333333;
+  --neutral-1000: #1e1e1e;
+
+  /* Success — Green */
+  --success-100: #ecf7f1;
+  --success-200: #d8efe2;
+  --success-300: #c4e8d4;
+  --success-400: #b1e0c6;
+  --success-500: #76c89b;
+  --success-600: #3cb170; /* main */
+  --success-700: #097e3d;
+  --success-800: #006424;
+  --success-900: #004b0a;
+  --success-1000: #003200;
+
+  /* Warning — Amber */
+  --warning-100: #fff9ed;
+  --warning-200: #fff4da;
+  --warning-300: #ffe8b6;
+  --warning-400: #ffdd91;
+  --warning-500: #ffd16d;
+  --warning-600: #ffc648; /* main */
+  --warning-700: #cc9315;
+  --warning-800: #b27a00;
+  --warning-900: #996000;
+  --warning-1000: #804600;
+
+  /* Error — Red */
+  --error-100: #fbe8e8;
+  --error-200: #f6d1d0;
+  --error-300: #f2bbb8;
+  --error-400: #eda4a1;
+  --error-500: #e05f5a;
+  --error-600: #d21b14; /* main */
+  --error-700: #9f0000;
+  --error-800: #6c0000;
+  --error-900: #520000;
+  --error-1000: #390000;
+
+  /* ---------- Semantic colors ---------- */
+  --color-bg: #ffffff;
+  --color-surface: var(--neutral-100);
+  --color-surface-2: var(--neutral-200);
+
+  --color-text: var(--neutral-1000);        /* #1e1e1e */
+  --color-text-muted: var(--neutral-700);
+  --color-text-disabled: var(--neutral-500); /* #b3b3b3 */
+  --color-text-on-brand: var(--neutral-100); /* #f5f5f5 */
+
+  --color-border: var(--neutral-200);
+  --color-border-strong: var(--neutral-400);
+
+  --color-primary: var(--primary-600);
+  --color-primary-hover: var(--primary-700);
+  --color-primary-pressed: var(--primary-800);
+  --color-primary-subtle: var(--primary-100);
+  --color-on-primary: var(--neutral-100);
+
+  --color-success: var(--success-600);
+  --color-warning: var(--warning-600);
+  --color-error: var(--error-600);
+
+  /* ---------- Category pillars ---------- */
+  /* Solid brand color for each app pillar */
+  --cat-sleep: #cba5ce;     /* lavender  */
+  --cat-mental: #b3c1de;    /* soft blue */
+  --cat-nutrition: #c24d08; /* burnt orange */
+  --cat-fertility: #b2255a; /* magenta */
+  --cat-lifestyle: #cbc459; /* olive */
+  --cat-core: #e2e2e2;      /* BioBuddy core / neutral */
+
+  /* APP / screen BACKGROUND gradients — a light tint of the category at the
+     top fading down toward the pillar color near the bottom (~94%).
+     This is the global app background, switched per category on the app shell.
+     Lightened from the Figma source (tint ramp 22% -> 48% -> 80% instead of
+     33/67/100) so screens read airier. Raise the ratios to deepen them. */
+  --grad-bg-sleep: linear-gradient(180deg, color-mix(in srgb, var(--cat-sleep) 22%, #fff) 0%, color-mix(in srgb, var(--cat-sleep) 48%, #fff) 54.33%, color-mix(in srgb, var(--cat-sleep) 80%, #fff) 94.23%);
+  --grad-bg-mental: linear-gradient(180deg, color-mix(in srgb, var(--cat-mental) 22%, #fff) 0%, color-mix(in srgb, var(--cat-mental) 48%, #fff) 54.33%, color-mix(in srgb, var(--cat-mental) 80%, #fff) 94.23%);
+  --grad-bg-nutrition: linear-gradient(180deg, color-mix(in srgb, var(--cat-nutrition) 22%, #fff) 0%, color-mix(in srgb, var(--cat-nutrition) 48%, #fff) 54.33%, color-mix(in srgb, var(--cat-nutrition) 80%, #fff) 94.23%);
+  --grad-bg-fertility: linear-gradient(180deg, color-mix(in srgb, var(--cat-fertility) 22%, #fff) 0%, color-mix(in srgb, var(--cat-fertility) 48%, #fff) 54.33%, color-mix(in srgb, var(--cat-fertility) 80%, #fff) 94.23%);
+  --grad-bg-lifestyle: linear-gradient(180deg, color-mix(in srgb, var(--cat-lifestyle) 22%, #fff) 0%, color-mix(in srgb, var(--cat-lifestyle) 48%, #fff) 54.33%, color-mix(in srgb, var(--cat-lifestyle) 80%, #fff) 94.23%);
+  --grad-bg-core: linear-gradient(180deg, color-mix(in srgb, var(--cat-core) 22%, #fff) 0%, color-mix(in srgb, var(--cat-core) 48%, #fff) 54.33%, color-mix(in srgb, var(--cat-core) 80%, #fff) 94.23%);
+
+  /* Card gradients (rich radial, art-directed per pillar) live in gradients.css
+     as --grad-card-<pillar> and .card-grad-<pillar>. */
+
+  /* ---------- Typography ---------- */
+  --font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+
+  /* font sizes */
+  --fs-h1: 30px;
+  --fs-h2: 24px;
+  --fs-h3: 20px;
+  --fs-h4: 18px;
+  --fs-body: 16px;       /* p */
+  --fs-body-sm: 14px;    /* p med / body semibold */
+  --fs-caption: 12px;
+  --fs-notes: 10px;
+
+  /* line heights */
+  --lh-tight: 1.2;   /* headings */
+  --lh-snug: 1.3;    /* body */
+  --lh-normal: 1.4;  /* small text */
+
+  /* weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+
+  /* ---------- Spacing scale ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px; /* base */
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* ---------- Radius ---------- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  /* ---------- Elevation ---------- */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
