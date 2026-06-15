@@ -1,0 +1,64 @@
+/* ============================================================
+   Insights — category card grid (Figma node 892:7343)
+   ============================================================ */
+
+.insights {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-5) var(--space-4) 0;
+  background: var(--color-bg);
+}
+
+.insights-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.insights-title {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-semibold);
+  color: #1d1d1f;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.insight-card {
+  height: 256px;
+  border-radius: 17px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.insight-chip {
+  align-self: flex-start;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  background: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1d1d1f;
+}
+
+.insight-card__title {
+  font-size: var(--fs-h4); /* 18 */
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-semibold);
+  color: #1d1d1f;
+}
+.insight-card__sub {
+  font-size: var(--fs-body);
+  line-height: var(--lh-snug);
+  color: #1d1d1f;
+  margin-top: 2px;
+}

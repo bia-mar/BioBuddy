@@ -1,4 +1,4 @@
-/* App shell — centered phone frame with a scrolling screen and a floating dock. */
+/* App shell — centered phone frame with a swipeable pager and a floating dock. */
 
 .app-root {
   min-height: 100dvh;
@@ -16,9 +16,26 @@
   overflow: hidden;
 }
 
-.app-scroll {
+/* Horizontal pager — snap between Dashboard and Insights */
+.app-pager {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.app-pager::-webkit-scrollbar {
+  display: none;
+}
+
+.app-page {
+  flex: 0 0 100%;
+  width: 100%;
   height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
+  scroll-snap-align: start;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 150px; /* clear the floating dock */
 }
@@ -34,7 +51,7 @@
   align-items: center;
   gap: 12px;
   padding-bottom: 18px;
-  pointer-events: none; /* let the fade pass touches through; children re-enable */
+  pointer-events: none;
 }
 .app-bottom__fade {
   position: absolute;
@@ -49,4 +66,26 @@
   position: relative;
   z-index: 1;
   pointer-events: auto;
+}
+
+/* Pagination dots */
+.dots {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  justify-content: center;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.dot--active {
+  width: 20px;
+  background: #000;
 }

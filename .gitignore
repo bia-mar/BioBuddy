@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Local tooling (machine-specific paths)
+.claude/launch.json
+
+# OS / editor cruft
+.DS_Store
+*.log

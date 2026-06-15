@@ -1,14 +1,32 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { HomeIcon, GoalIcon, RecordsIcon, ProfileIcon } from "./icons/NavIcons";
 import { MorphingDock, type DockLevel } from "./MorphingDock";
 import { Dashboard } from "./screens/Dashboard";
+import { Insights } from "./screens/Insights";
 import "./App.css";
 
-/* BioBuddy MVP shell. For now a single screen (Dashboard) at L1 with the dock
-   as the top-level wayfinder. As more screens land, this grows into a stack. */
+/* BioBuddy MVP shell. Two home pages — Dashboard and Insights — swipe
+   horizontally; pagination dots track the active page. The dock floats over
+   both as the top-level wayfinder. */
+
+const PAGES = ["Dashboard", "Insights"];
 
 export function App() {
   const [tab, setTab] = useState("dashboard");
+  const [page, setPage] = useState(0);
+  const pagerRef = useRef<HTMLDivElement>(null);
+
+  function handleScroll() {
+    const el = pagerRef.current;
+    if (!el) return;
+    const next = Math.round(el.scrollLeft / el.clientWidth);
+    if (next !== page) setPage(next);
+  }
+
+  function goToPage(i: number) {
+    const el = pagerRef.current;
+    if (el) el.scrollTo({ left: i * el.clientWidth, behavior: "smooth" });
+  }
 
   const home: DockLevel = {
     id: "home",
@@ -24,15 +42,27 @@ export function App() {
   return (
     <div className="app-root">
       <div className="app-screen">
-        <div className="app-scroll">
-          <Dashboard />
+        <div className="app-pager" ref={pagerRef} onScroll={handleScroll}>
+          <div className="app-page">
+            <Dashboard />
+          </div>
+          <div className="app-page">
+            <Insights />
+          </div>
         </div>
 
         <div className="app-bottom">
           <div className="app-bottom__fade" aria-hidden />
-          <div className="dots" aria-hidden>
-            <span className="dot dot--active" />
-            <span className="dot" />
+          <div className="dots">
+            {PAGES.map((name, i) => (
+              <button
+                key={name}
+                className={i === page ? "dot dot--active" : "dot"}
+                aria-label={`Go to ${name}`}
+                aria-current={i === page ? "true" : undefined}
+                onClick={() => goToPage(i)}
+              />
+            ))}
           </div>
           <MorphingDock
             stack={[home]}

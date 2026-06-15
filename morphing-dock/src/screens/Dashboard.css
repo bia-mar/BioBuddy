@@ -274,21 +274,3 @@
   width: 100%;
   display: block;
 }
-
-/* ---- pagination dots ---- */
-.dots {
-  display: flex;
-  gap: var(--space-2);
-  align-items: center;
-  justify-content: center;
-}
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: var(--radius-pill);
-  background: rgba(0, 0, 0, 0.3);
-}
-.dot--active {
-  width: 20px;
-  background: #000;
-}
