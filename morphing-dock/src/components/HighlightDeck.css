@@ -1,0 +1,119 @@
+/* ============================================================
+   HighlightDeck — the 3 onboarding cards.
+   Collapsed = stacked deck; tap to expand into a vertical list.
+   Figma: collapsed 834:6721 (deck), expanded 834:6891.
+   ============================================================ */
+
+.hl-card {
+  position: relative;
+  width: 100%;
+  height: 256px;
+  border-radius: 17px;
+  padding: 20px;
+  background: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  text-align: left;
+}
+.hl-card__title {
+  font-size: var(--fs-h3); /* 20 */
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-semibold);
+  color: #1d1d1f;
+}
+.hl-card__sub {
+  font-size: var(--fs-body-sm); /* 14 */
+  line-height: var(--lh-normal);
+  font-weight: var(--fw-semibold);
+  color: #4a5565;
+  margin-top: var(--space-2);
+}
+
+/* decorative soft blob on the chat / records cards */
+.hl-blob {
+  position: absolute;
+  right: -34px;
+  top: 96px;
+  width: 182px;
+  height: 182px;
+  border-radius: var(--radius-pill);
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #e4e4e4 70%);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* category chips on the insights card */
+.hl-chips {
+  display: flex;
+  gap: 12px;
+  position: relative;
+  z-index: 1;
+}
+.hl-chip {
+  width: 40px;
+  height: 40px;
+  border-radius: 19px;
+  background: rgba(54, 65, 83, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #364153;
+}
+
+/* ---- collapsed stack ---- */
+.hl-stack {
+  position: relative;
+  width: 100%;
+  padding-top: 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: block;
+}
+.hl-peek {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 256px;
+  border-radius: 17px;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.06);
+}
+.hl-peek--back {
+  top: 0;
+  width: calc(100% - 44px);
+  background: #ededed;
+  z-index: 1;
+}
+.hl-peek--mid {
+  top: 10px;
+  width: calc(100% - 22px);
+  background: #f0f0f0;
+  z-index: 2;
+}
+.hl-stack .hl-card {
+  position: relative;
+  z-index: 3;
+}
+
+/* ---- expanded list ---- */
+.hl-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.hl-collapse {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  padding: 8px 16px;
+  border: none;
+  background: none;
+  color: #4a5565;
+  font-size: var(--fs-body-sm);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+}

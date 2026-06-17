@@ -1,25 +1,19 @@
 import { IconSearch, IconPlus, IconClock } from "@tabler/icons-react";
+import { HighlightDeck } from "../components/HighlightDeck";
 import "./Dashboard.css";
 
 /* Dashboard / main — low-data onboarding state (Figma 834:6721).
    Mini charts are hand-built SVGs (the Figma chart assets are expiring URLs). */
 
 function SleepBars() {
-  const bars = [40, 54, 30, 62, 34, 48, 38];
-  const w = 12;
-  const gap = 7;
+  // varied heights (out of 68) — a light sleep-stage rhythm
+  const bars = [22, 38, 30, 52, 62, 36, 46];
+  const w = 8;
+  const gap = 11;
   return (
-    <svg className="chart" height={68} viewBox={`0 0 ${bars.length * (w + gap)} 68`} aria-hidden>
+    <svg className="chart" height={68} viewBox={`0 0 ${bars.length * (w + gap) - gap} 68`} aria-hidden>
       {bars.map((h, i) => (
-        <rect
-          key={i}
-          x={i * (w + gap)}
-          y={68 - h}
-          width={w}
-          height={h}
-          rx={4}
-          fill="#36415380"
-        />
+        <rect key={i} x={i * (w + gap)} y={68 - h} width={w} height={h} rx={4} fill="#364153" />
       ))}
     </svg>
   );
@@ -29,12 +23,12 @@ function HrvLine() {
   return (
     <svg className="chart" height={49} viewBox="0 0 150 49" fill="none" aria-hidden>
       <path
-        d="M0 30 C 12 26, 20 18, 32 20 S 52 34, 64 30 S 86 14, 100 22 S 124 36, 138 26 L150 28"
-        stroke="#1d1d1f"
-        strokeOpacity="0.55"
-        strokeWidth="2"
+        d="M0 31 C 14 27, 22 19, 34 21 S 54 35, 66 31 S 88 15, 102 23 S 126 37, 138 27 L150 29"
+        stroke="#364153"
+        strokeOpacity="0.6"
+        strokeWidth="1.5"
         strokeLinecap="round"
-        strokeDasharray="2 4"
+        strokeLinejoin="round"
       />
     </svg>
   );
@@ -57,22 +51,8 @@ export function Dashboard() {
       </header>
 
       <div className="dash-content">
-        {/* Stacked highlight deck */}
-        <section className="deck" aria-label="Highlights">
-          <div className="deck__peek deck__peek--1" aria-hidden />
-          <div className="deck__peek deck__peek--2" aria-hidden />
-          <article className="card deck__front">
-            <div>
-              <h2 className="card-title card-title--lg">Complete onboarding</h2>
-              <p className="card-sub">
-                Add exams and other health data so BioBuddy can help you
-              </p>
-            </div>
-            <button className="btn-pill" onClick={() => console.log("Add records")}>
-              Add records
-            </button>
-          </article>
-        </section>
+        {/* Stacked highlight deck — tap to expand */}
+        <HighlightDeck />
 
         {/* Building your baseline */}
         <section className="card card-dark">
